@@ -20,15 +20,15 @@ jobs:
     steps:
       - name: download repo
         uses: actions/download-artifact@v3
-         with:
-          name: code
-          path: .
+          with:
+            name: code
+            path: .
       - name: build
         run: "ci/build-app.sh"
       - name: test
         run: "ci/unit-test-app.sh"
       - name: upload-repo
         uses: actions/upload-artifact@v3
-        with: 
-          name: code
-          path: .
+          with: 
+            name: code
+            path: .

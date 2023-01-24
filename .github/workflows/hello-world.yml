@@ -35,8 +35,8 @@ jobs:
       - name: upload-repo
         uses: actions/upload-artifact@v3
         with: 
-          name: app
-          path: app/build/libs/app-0.1-all.jar
+          name: code
+          path: .
   
   docker-image:
     runs-on: ubuntu-latest
@@ -47,7 +47,7 @@ jobs:
       - name: download repo
         uses: actions/download-artifact@v3
         with:
-          name: app
+          name: code
           path: .
       - name: build docker
         run: "chmod +x ci/build-docker.sh && ci/build-docker.sh"

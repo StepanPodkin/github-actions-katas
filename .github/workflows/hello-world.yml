@@ -1,7 +1,7 @@
 name: hello-world
 on: push
 env:
-  docker_username: "test-user-because-actor-is-camel-case"
+  docker_username: "stepanpodkin"
   docker_password: ${{ secrets.GITHUB_TOKEN }}
   GIT_COMMIT: ${{ github.sha }}
   

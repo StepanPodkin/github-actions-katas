@@ -25,6 +25,22 @@ jobs:
           path: .
       - name: build
         run: "chmod +x ci/build-app.sh && ci/build-app.sh"
+      - name: upload-repo
+        uses: actions/upload-artifact@v3
+        with: 
+          name: code
+          path: .
+
+  test:
+    needs: clone-down
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+      - name: download repo
+        uses: actions/download-artifact@v3
+        with:
+          name: code
+          path: .
       - name: test
         run: "chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh"
       - name: upload-repo
